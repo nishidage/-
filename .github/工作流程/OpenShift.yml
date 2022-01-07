@@ -1,0 +1,39 @@
+- 名称：OpenShift 自托管 Runner 安装程序
+  # 您可以固定到确切的提交或版本。
+  # 使用：redhat-actions/openshift-actions-runner-installer@1ae07bff8c27b2b06fbd55ef36eada3a078ac3e9
+  用途：redhat-actions/openshift-actions-runner-installer@v1.0.0
+  和：
+    # GitHub 个人访问令牌。令牌必须具有“repo”权限范围。
+对于组织运行者，令牌还必须具有“admin:org”范围。
+
+    github_pat： 
+    # 自托管运行器的存储库或组织。
+例如，存储库的“redhat-actions/check-self-hosted-runner”或组织的“redhat-actions”。
+默认为当前存储库。
+
+    runner_location: # 可选
+    # 用于跑步者的容器图像。
+    runner_image: # 可选
+    # 用于运行容器镜像的标签。
+    runner_tag: # 可选
+    # 要检查的跑步者中的标签。
+对于多个标签，用逗号和一个可选的空格分隔。例如，“标签 1，标签 2”。
+
+    runner_labels: # 可选
+    # 要创建的运行器副本数。
+    runner_replicas: # 可选，默认为 1
+    # 传递给所有 Helm 或 Kubernetes 命令的可选命名空间（又名项目）。
+
+    命名空间：# 可选
+    # 在运行 `helm install` 之前卸载任何与 `helm_release_name` 和 `namespace` 匹配的版本。
+如果这是错误的，并且版本存在，则在 `helm install` 失败时该操作将失败。
+
+    helm_uninstall_existing: # 可选，默认为 true
+    # Helm Release 名称以提供新的 runner 版本。默认为存储库或组织名称加上“-runners”。
+    helm_release_name: # 可选
+    # 传递给“helm install”命令的任何其他参数。
+用换行符分隔参数。不要使用引号 - @actions/exec 会为你做引号。
+
+    helm_extra_args: # 可选
+    # 要安装的 Helm Chart 版本。默认为最新。
+    helm_chart_version: # 可选
